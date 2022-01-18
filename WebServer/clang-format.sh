@@ -1,0 +1,1 @@
+find . -name *.c -o -name  *.h | grep -v build | xargs clang-format -style=google -i

@@ -1,0 +1,4 @@
+server: 
+  port: 8989
+log: 
+  path: ../logs/Webservers.log
