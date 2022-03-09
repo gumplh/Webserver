@@ -1,16 +1,16 @@
 #include "EventLoop.h"
+#include "Init.h"
 #include "Logging.h"
 #include "Server.h"
-#include "config.h"
 using namespace std;
-
+extern Logging Log;
 int main(int argc, char* argv[]) {
-  WebserverConfigInstance->InitConfig("../server.yaml");
-  Logging Log{WebserverConfigInstance->GetLogPath()};
-  Log << "start Webserver...";
+  InitAll();
   EventLoop loop_;
-  Server server_(&loop_, WebserverConfigInstance->GetPort(), 4);
+  Log << "start Webserver...";
+  Server server_(&loop_, WebserverConfigInstance->GetPort(), 2);
   server_.start();
+  
   loop_.loop();
   return 0;
 }
