@@ -1,8 +1,8 @@
 #include "Init.h"
 #include "Logging.h"
 #include "config.h"
-extern Logging Log;
+#include "myNanoLog.h"
 void InitAll() {
   WebserverConfigInstance->InitConfig("../server.yaml");
-  Log.setPath(WebserverConfigInstance->GetLogPath());
+  nanolog::initialize(nanolog::NonGuaranteedLogger(10), "./tmp", "nanolog", 1);
 }

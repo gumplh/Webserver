@@ -3,13 +3,12 @@
 std::string getTime() {
   time_t now = time(0);
   tm* ltm = localtime(&now);
-  char time[30];
+  char time[32];
   sprintf(time, "%4d-%02d-%02d %02d:%02d:%02d:", 1900 + ltm->tm_year,
           1 + ltm->tm_mon, ltm->tm_mday, ltm->tm_hour, ltm->tm_min,
-          ltm->tm_min);
+          ltm->tm_sec);
   return time;
 }
-
 Logging::Logging(std::string path) : path_(path), next_(0), ptrs(&buff[next_]) {
   std::cout << path_ << std::endl;
   fout.open(path_, std::ios::out | std::ios::app);
@@ -41,4 +40,3 @@ void Logging::operator<<(const std::string s) {
   }
   *ptrs += getTime() + s + "\r\n";
 }
-Logging Log;

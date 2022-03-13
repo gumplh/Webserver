@@ -19,6 +19,8 @@ class TimerNode {
   // HttpData* httpdata;
   std::shared_ptr<HttpData> httpdata_;
   size_t ExpiredTime_;  // 64位
+  TimerNode *next = NULL;
+  TimerNode *pre = NULL;
 };
 
 typedef std::shared_ptr<TimerNode> SP_TimerNode;
@@ -32,7 +34,7 @@ struct cmp {
 class Timermanger {
  public:
   Timermanger() = default;
-  void addTimer(SP_TimerNode& node) { TimerQueue.push(node); }
+  void addTimer(SP_TimerNode &node) { TimerQueue.push(node); }
   void addTimer(std::shared_ptr<HttpData> req) {
     TimerQueue.push(static_cast<SP_TimerNode>(new TimerNode(req)));
   }
