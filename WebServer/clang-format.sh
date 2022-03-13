@@ -1,1 +1,1 @@
-find . -name *.c -o -name  *.h | grep -v build | xargs clang-format -style=google -i
+find . -name "*.h" -o -name "*.cpp" | grep -v build |grep -v thirt_part| xargs clang-format -style=google -i
