@@ -18,7 +18,7 @@ class EPoller {
   std::vector<SP_Channel> poll();
 
  private:
-  TimerHeap timermanger_;
+  Timermanger timermanger_;
   int epfd_;
   static const int MAXFDS = 10000;
   epoll_event events_[MAXFDS];  // active events

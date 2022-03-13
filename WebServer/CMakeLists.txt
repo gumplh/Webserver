@@ -7,10 +7,10 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -g2 -ggdb")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/utils 
-    ${PROJECT_SOURCE_DIR}/base 
+    ${PROJECT_SOURCE_DIR}/utils
+    ${PROJECT_SOURCE_DIR}/base/include 
     ${PROJECT_SOURCE_DIR}/third_part/yaml-cpp-master/include
-    )
+)
 
 add_subdirectory(base)
 add_subdirectory(utils)

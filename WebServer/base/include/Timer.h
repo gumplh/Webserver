@@ -29,9 +29,9 @@ struct cmp {
   }
 };
 
-class TimerHeap {
+class Timermanger {
  public:
-  TimerHeap() = default;
+  Timermanger() = default;
   void addTimer(SP_TimerNode& node) { TimerQueue.push(node); }
   void addTimer(std::shared_ptr<HttpData> req) {
     TimerQueue.push(static_cast<SP_TimerNode>(new TimerNode(req)));

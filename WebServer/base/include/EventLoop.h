@@ -13,6 +13,7 @@ struct attr {
   int fd;
   std::shared_ptr<EventLoop> loop;
 };
+
 struct Functor {
   Fun fun;
   attr a;

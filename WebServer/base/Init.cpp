@@ -1,9 +1,8 @@
 #include "Init.h"
-#include "config.h"
 #include "Logging.h"
+#include "config.h"
 extern Logging Log;
-void InitAll(){
-    WebserverConfigInstance->InitConfig("../server.yaml");
-
-    Log.setPath(WebserverConfigInstance->GetLogPath());
+void InitAll() {
+  WebserverConfigInstance->InitConfig("../server.yaml");
+  Log.setPath(WebserverConfigInstance->GetLogPath());
 }
